@@ -1,10 +1,10 @@
 {
-  "name": "fk-git-commit-msg-std",
-  "version": "0.0.4",
-  "description": "Check if git commit messages meet ForkKILLET standard.",
+  "name": "exlg-git-commit-msg-std",
+  "version": "0.0.1",
+  "description": "Check if git commit messages meet Extend Luogu standard.",
   "main": "check.js",
-  "repository": "https://github.com/ForkFG/FkGitCommitInfoStd.git",
-  "author": "ForkΨKILLET <fork_killet@qq.com>",
+  "repository": "https://github.com/extend-luogu/ExtendLuoguGitCommitMsgStd",
+  "author": "ForkΨKILLET <fork_killet@qq.com>, optimize_2 <opt2@qq.com>",
   "license": "MIT",
   "dependencies": {
     "minimist": "^1.2.5"
