@@ -86,11 +86,15 @@ const C = {
 	header() {
 		S.tk(S.lnc())
 
-		let desc = false
-		while (S.tks.length)
-			if (S.T({ n: "descSym", d: "descriptor symbol in the header" }) !== false) desc = true
+		return true
 
-		if (! desc) throw "should have at least one descriptor symbol"
+		// Note: do not check header
+
+		// let desc = false
+		// while (S.tks.length)
+		// 	if (S.T({ n: "descSym", d: "descriptor symbol in the header" }) !== false) desc = true
+
+		// if (! desc) throw "should have at least one descriptor symbol"
 	},
 
 	descSym() {
