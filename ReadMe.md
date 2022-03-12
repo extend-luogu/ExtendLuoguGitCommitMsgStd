@@ -10,9 +10,18 @@
 
 关于描述符，详见 [FkGitCommitMsgStd](https://github.com/ForkKILLET/FkGitCommitMsgStd)，这里不加赘述。
 
-如果是重大更新，可以考虑把描述符加入标题，并将其放在提交内容之前。
+~~如果是重大更新，可以考虑把描述符加入标题，并将其放在提交内容之前。~~
 
-举例：`VER 1.0.0 Initial`，`VER 2.0.0 Typescript Refactor`，`VER 3.0.0 ISS #7 Xyz Update`。  
+~~举例：`VER 1.0.0 Initial`，`VER 2.0.0 Typescript Refactor`，`VER 3.0.0 ISS #7 Xyz Update`。 ~~
+
+Update: 现在不允许 PR 时修改版本号，所有版本均在合并后统一修改。
+
+版本号 `Major.Minor.Release` 修改规则：
+
+1. 公认的大修改改 Major 版本，如 Commit Std Update；
+2. 新增模块修改 Minor 版本，如 Virtual Participation；
+3. 修复 Bug 修改 Release 版本，如 Fix cdn；
+4. 虽然允许，但**非常**不建议刻意将多个 bug 修改 squash 成一个 commit。
 
 ## 内容
 
