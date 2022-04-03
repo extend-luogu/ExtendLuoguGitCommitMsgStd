@@ -54,7 +54,7 @@ const C = {
 
 	lnBrk(_) {
 		if (S.lnh !== "" && ! _) throw "should be empty"
-		else S.lnc()
+		else !S.lnh && S.lnc()
 	},
 
 	space(n = 1) {
