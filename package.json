@@ -1,6 +1,6 @@
 {
   "name": "exlg-git-commit-msg-std",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "Check if git commit messages meet Extend Luogu standard.",
   "main": "check.js",
   "repository": "https://github.com/extend-luogu/ExtendLuoguGitCommitMsgStd",

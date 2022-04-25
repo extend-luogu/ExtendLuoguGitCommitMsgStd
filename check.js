@@ -37,7 +37,9 @@ const S = {
 	},
 
 	lnc: () => S.recc(S.lns.splice(0, 1)[0]),
+	lnrc: () => S.recc(S.lns.splice(-1)[0]),
 	get lnh() { return S.lns[0] },
+	get lne() { return S.lns.slice(-1)[0] },
 	set lnh(s) { S.lns[0] = s },
 
 	tk: ln => { S.tks = ln.split(" ") },
@@ -79,6 +81,7 @@ const C = {
 		[
 			{ n: "header", d: "~" },
 			{ n: "lnBrk", d: "line break between header and body" },
+			{ n: "meta", d: "metadata block" },
 			{ n: "body", d: "~" }
 		].forEach(S.T)
 	},
@@ -147,7 +150,7 @@ const C = {
 				subItem = true
 				break
 			default:
-				throw "should be inforamtion or subitem, which should be indented by 1 and 3 spaces respectively"
+				throw "should be information or subitem, which should be indented by 1 and 3 spaces respectively"
 			}
 		}
 	},
@@ -162,14 +165,14 @@ const C = {
 	},
 
 	info() {
-		const c = S.T({ n: "infoTy", d: "type of inforamtion" })
-		S.T({ n: "space", d: "space after inforamtion" }, 1)
+		const c = S.T({ n: "infoTy", d: "type of information" })
+		S.T({ n: "space", d: "space after information" }, 1)
 		switch (c) {
 		case "&":
-			S.T({ n: "url", d: "url of '&' inforamtion" })
+			S.T({ n: "url", d: "url of '&' information" })
 			break
 		default:
-			S.T({ n: "none", d: "text of inforamtion" })
+			S.T({ n: "none", d: "text of information" })
 			S.lnc()
 		}
 	},
@@ -178,6 +181,19 @@ const C = {
 		const c = S.chc()
 		if (! S.infoTy.includes(c)) throw `should be an type in [${ S.infoTy.join(", ") }]`
 		return c
+	},
+	
+	meta() {
+		let hasMeta = false
+		while (S.lns.length && /^[A-Za-z].*$/.test(S.lne)) {
+			S.lnrc()
+			hasMeta = true
+		}
+		if (hasMeta) {
+			if (S.lne !== "")
+				throw "should be an empty line before metadata"
+			S.lnrc()
+		}
 	}
 }
 
